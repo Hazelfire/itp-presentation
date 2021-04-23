@@ -1,0 +1,88 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  AwsRoute53CloudFrontHostedZoneId:
+    Type:         String
+    Default:      Z2FDTNDATAQYW2
+    Description:  CloudFront resources HostedZoneId
+
+  AwsCertificateArn:
+    Type:         String
+    Default:      arn:aws:acm:us-east-1:659023026482:certificate/5fa8f591-4ee5-4397-96bb-7e72fea86fae 
+    Description:  Certificate Manager Certificate ARN 
+  Subdomain:
+    Type:         String
+    Description:  The subdomain that this cite applies to
+
+
+Resources:
+  CloudFrontIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: "EbayPhotos Origin Access Identity"
+
+  S3HostingBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${Subdomain}.hazelfire.net"
+        
+  CloudFront:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Aliases:
+          - !Sub "${Subdomain}.hazelfire.net"
+        Origins:
+          - DomainName: !GetAtt S3HostingBucket.RegionalDomainName
+            Id: !Sub "S3-Origin-${Subdomain}.hazelfire.net"
+            S3OriginConfig:
+              OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudFrontIdentity}"
+        ViewerCertificate:
+          AcmCertificateArn: !Ref AwsCertificateArn
+          MinimumProtocolVersion: TLSv1.2_2018 
+          SslSupportMethod: sni-only
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - GET
+            - HEAD
+          CachedMethods:
+            - GET
+            - HEAD
+          ForwardedValues:
+            QueryString: True
+          TargetOriginId: !Sub "S3-Origin-${Subdomain}.hazelfire.net"
+          ViewerProtocolPolicy: redirect-to-https
+        PriceClass: PriceClass_100
+
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref S3HostingBucket
+      PolicyDocument:
+        Statement:
+          - Action:
+              - "s3:GetObject"
+            Effect: Allow
+            Principal:
+              AWS:
+                !Join [
+                  "",
+                  [
+                    "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ",
+                    !Ref CloudFrontIdentity,
+                  ],
+                ]
+            Resource: !Join ["", ["arn:aws:s3:::", !Ref S3HostingBucket, "/*"]]
+        Version: "2012-10-17"
+
+  WebsiteDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      Type: A
+      Name: !Sub "${Subdomain}.hazelfire.net"
+      HostedZoneName: hazelfire.net.
+      AliasTarget:
+        DNSName: !GetAtt CloudFront.DomainName
+        EvaluateTargetHealth: False
+        HostedZoneId: !Ref AwsRoute53CloudFrontHostedZoneId
