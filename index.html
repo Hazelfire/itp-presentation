@@ -34,6 +34,9 @@
     .problemtable {
       font-size: 1.5rem;
     }
+    .references {
+      font-size: 1.5rem;
+    }
   </style>
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.1.0/dist/theme/black.css" id="theme">
 </head>
@@ -54,12 +57,12 @@
 <img src="images/Specification.png">
 </section>
 <section id="formal-methods" class="title-slide slide level1">
-<section id="interactive-theorem-provers" class="slide level2">
+<section id="industry" class="slide level2">
 <h1>Little industry adoption</h1>
 <p>Formal methods have <a href="https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/">yet to have had widespread industry adoption</a></p>
 <p>increase the usability of interactive theorem provers</p>
 </section>
-<section id="interactive-theorem-provers" class="slide level2">
+<section id="usability-interactive-theorem-provers" class="slide level2">
 <h2>Usability of interactive theorem provers</h2>
 <p>Only <a href="https://ieeexplore.ieee.org/document/7582776">two</a> <a href="https://link.springer.com/chapter/10.1007/978-3-030-54997-8_25">empirical</a> studies found on the usability of interactive theorem provers!</p>
 <table class="problemtable">
@@ -71,7 +74,19 @@
   <tr><td>Tedious Interaction</td><td>?</td><td class="focus">[1]</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
   <tr><td>Lack of proof refactoring</td><td class="focus">[1]</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
 </table>
-</section></section>
+</section>
+<section id="interactive-theorem-provers" class="slide level2">
+<h2>Solutions Research</h2>
+<table class="problemtable">
+  <tr><th>Solution</th><th>Isabelle</th><th>KeY</th><th>HOL</th><th>Coq</th><th>Lean</th><th>Others</th></tr>
+  <tr><td>Improve understanding of intermediate proof state</td><td>?</td><td class="suggested">[2]</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+  <tr><td>Secondary Notation</td><td>?</td><td>?</td><td class="suggested">[3]</td><td>?</td><td>?</td><td>?</td></tr>
+  <tr><td>Symbolic debugging interface</td><td>?</td><td class="empirical">[2]</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+  <tr><td>Show different views of interface</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td></tr>
+  <tr><td>Allow different interaction styles</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td></tr>
+</table>
+</section>
+</section>
 <section id="usability-of-interactive-theorem-provers" class="title-slide slide level1">
 <h1>Our Study</h1>
 <ul>
@@ -79,6 +94,15 @@
   <li>Suggest further research paths for empirical studies</li>
   <li>Have working software for everyone</li>
 </ul>
+</section>
+<section id="references" class="title-slide slide level1">
+<h1>References</h1>
+<ol class="references">
+  <li>B. Beckert, S. Grebing, and F. B ̈ohl, “A Usability Evaluation of Interactive Theorem ProversUsing Focus Groups,” in Software Engineering and Formal Methods, C. Canal and A. Idani,Eds.    Cham:  Springer International Publishing, 2015, pp. 3–19.</li>
+  <li>M. Hentschel,  R. H ̈ahnle,  and R. Bubel,  “An Empirical Evaluation of Two User Interfaces of an Interactive  Program  Verifier,”  in Proceedings of the 31st IEEE / ACM International Conference on Automated Software Engineering,  ser.  ASE  2016.New  York,  NY,  USA:Association for Computing Machinery, 2016, pp. 403–413, event-place:  Singapore, Singapore.</li>
+  <li>J.  S.  Aitken,  P.  Gray,  T.  Melham,  and  M.  Thomas,  “Interactive  Theorem  Proving:   An Empirical  Study  of  User  Activity,”Journal of Symbolic Computation,  vol.  25,  no.  2,pp.  263–284,  1998</li>
+  <li>S.  Grebing  and  M.  Ulbrich,  “Usability  Recommendations  for  User  Guidance  in  Deductive Program Verification,” in Deductive Software Verification: FuturePerspectives: Reflections on the Occasion of 20 Years of KeY,  W.  Ahrendt,  B.  Beckert,  R.  Bubel,  R.  H ̈ahnle,  and M.  Ulbrich,  Eds.    Cham:   Springer  International  Publishing,  2020,  pp.  261–284.</li>
+</ol>
 </section>
     </div>
   </div>
