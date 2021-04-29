@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js@3.9.2//dist/reset.css">
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js@3.9.2//dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.1.0/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -19,8 +19,23 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    .focus {
+      background-color: blue;
+      color: black;
+    }
+    .suggested {
+      background-color: white;
+      color: black;
+    }
+    .empirical {
+      background-color: green;
+      color: black;
+    }
+    .problemtable {
+      font-size: 1.5rem;
+    }
   </style>
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js@3.9.2//dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.1.0/dist/theme/black.css" id="theme">
 </head>
 <body>
   <div class="reveal">
@@ -32,36 +47,50 @@
   <p class="date">23 April 2021</p>
 </section>
 
-<section id="usability-of-interactive-theorem-provers" class="slide level1">
-<h1>Usability of Interactive Theorem Provers</h1>
-<h2 id="we-love-software">We Love Software</h2>
-<h2 id="sometimes-it-doesnt-work">Sometimes it doesn’t work</h2>
-<h2 id="how-can-we-make-sure-software-works">How can we make sure software works?</h2>
+<section id="introduction" class="title-slide slide level1">
+<h2>Preventing software errors</h2>
+<p>Failing to implement software to specification</p>
+<p class="fragment"><span class="fragment strike">Formal methods</span> <span class="fragment">Interactive Theorem Provers</span></p>
+<img src="images/Specification.png">
 </section>
-<section id="formal-methods" class="slide level1">
-<h1>Formal Methods</h1>
-<p>Automation of Formal Methods: - Automatic Theorem Provers - Model Checkers</p>
-<p>Interactive Formal Methods: - Interactive Theorem Provers</p>
+<section id="formal-methods" class="title-slide slide level1">
+<section id="interactive-theorem-provers" class="slide level2">
+<h1>Little industry adoption</h1>
+<p>Formal methods have <a href="https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/">yet to have had widespread industry adoption</a></p>
+<p>increase the usability of interactive theorem provers</p>
 </section>
-<section id="usability-of-interactive-theorem-provers-1" class="slide level1">
-<h1>Usability of Interactive Theorem Provers</h1>
-<p>Usability of Interactive Theorem Provers</p>
-<p>Lack of Study</p>
-</section>
-<section id="our-study" class="slide level1">
+<section id="interactive-theorem-provers" class="slide level2">
+<h2>Usability of interactive theorem provers</h2>
+<p>Only <a href="https://ieeexplore.ieee.org/document/7582776">two</a> <a href="https://link.springer.com/chapter/10.1007/978-3-030-54997-8_25">empirical</a> studies found on the usability of interactive theorem provers!</p>
+<table class="problemtable">
+  <tr><th>Problem</th><th>Isabelle</th><th>KeY</th><th>HOL</th><th>Coq</th><th>Lean</th><th>Others</th></tr>
+  <tr><td>Too much detail shown</td><td>?</td><td class="focus">[1]</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+  <tr><td>Hard to understand failure</td><td>?</td><td class="suggested">[2]</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+  <tr><td>Understanding proof state</td><td class="focus">[1]</td><td class="focus">[1]</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+  <tr><td>False Prediction made</td><td class="empirical">[3]</td><td>?</td><td class="empirical">[3]</td><td>?</td><td>?</td><td>?</td></tr>
+  <tr><td>Tedious Interaction</td><td>?</td><td class="focus">[1]</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+  <tr><td>Lack of proof refactoring</td><td class="focus">[1]</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+</table>
+</section></section>
+<section id="usability-of-interactive-theorem-provers" class="title-slide slide level1">
 <h1>Our Study</h1>
-<p>Research Gaps</p>
-<p>Software that works for everyone</p>
+<ul>
+  <li>Systematically investigates all usability problems and solutions for a set of popular interactive theorem provers.</li>
+  <li>Suggest further research paths for empirical studies</li>
+  <li>Have working software for everyone</li>
+</ul>
 </section>
     </div>
   </div>
 
-  <script src="https://unpkg.com/reveal.js@3.9.2//dist/reveal.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.1.0/dist/reveal.js"></script>
 
   <!-- reveal.js plugins -->
-  <script src="https://unpkg.com/reveal.js@3.9.2//plugin/notes/notes.js"></script>
-  <script src="https://unpkg.com/reveal.js@3.9.2//plugin/search/search.js"></script>
-  <script src="https://unpkg.com/reveal.js@3.9.2//plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.1.0/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.1.0/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@4.1.0/plugin/zoom/zoom.js"></script>
+  <script src="plugin/chart/Chart.min.js"></script>
+  <script src="plugin/chart/plugin.js"></script>
 
   <script>
 
@@ -75,6 +104,7 @@
         // reveal.js plugins
         plugins: [
           RevealNotes,
+          RevealChart,
           RevealSearch,
           RevealZoom
         ]
