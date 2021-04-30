@@ -21,7 +21,7 @@
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     .focus {
       background-color: blue;
-      color: black;
+      color: white;
     }
     .suggested {
       background-color: white;
@@ -32,6 +32,9 @@
       color: black;
     }
     .problemtable {
+      font-size: 1.5rem;
+    }
+    .legend {
       font-size: 1.5rem;
     }
     .references {
@@ -53,18 +56,22 @@
 <section id="introduction" class="title-slide slide level1">
 <h2>Preventing software errors</h2>
 <p>Failing to implement software to specification</p>
-<p class="fragment"><span class="fragment strike">Formal methods</span> <span class="fragment">Interactive Theorem Provers</span></p>
+<p class="fragment">Formal methods<span class="fragment"> &gt; Interactive Theorem Provers (ITPs)</span></p>
 <img src="images/Specification.png">
 </section>
 <section id="formal-methods" class="title-slide slide level1">
 <section id="industry" class="slide level2">
 <h1>Little industry adoption</h1>
-<p>Formal methods have <a href="https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/">yet to have had widespread industry adoption</a></p>
-<p>increase the usability of interactive theorem provers</p>
+<p>Proving software is <a href="https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/">extremely hard</a></p>
+<p>IronFleet project: 5000 lines of verified Dafny code, in <em>3.7 person-years</em>. 4 lines of code a day!</p>
+</section>
+<section id="industry" class="slide level2">
+<h2>Coq theorem prover</h2>
+<img src="images/Coq.png" >
 </section>
 <section id="usability-interactive-theorem-provers" class="slide level2">
-<h2>Usability of interactive theorem provers</h2>
-<p>Only <a href="https://ieeexplore.ieee.org/document/7582776">two</a> <a href="https://link.springer.com/chapter/10.1007/978-3-030-54997-8_25">empirical</a> studies found on the usability of interactive theorem provers!</p>
+<h2>Usability Studies on ITPs</h2>
+<p>Empirical Studies [2,5]</p>
 <table class="problemtable">
   <tr><th>Problem</th><th>Isabelle</th><th>KeY</th><th>HOL</th><th>Coq</th><th>Lean</th><th>Others</th></tr>
   <tr><td>Too much detail shown</td><td>?</td><td class="focus">[1]</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
@@ -74,6 +81,7 @@
   <tr><td>Tedious Interaction</td><td>?</td><td class="focus">[1]</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
   <tr><td>Lack of proof refactoring</td><td class="focus">[1]</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
 </table>
+<p class="legend">Legend: <span class="suggested">Suggested</span> <span class="focus">Focus Group</span> <span class="empirical">Empirical</span></p>
 </section>
 <section id="interactive-theorem-provers" class="slide level2">
 <h2>Solutions Research</h2>
@@ -85,15 +93,14 @@
   <tr><td>Show different views of interface</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td></tr>
   <tr><td>Allow different interaction styles</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td><td class="suggested">[4]</td></tr>
 </table>
+<p class="legend">Legend: <span class="suggested">Suggested</span> <span class="focus">Focus Group</span> <span class="empirical">Empirical</span></p>
 </section>
 </section>
 <section id="usability-of-interactive-theorem-provers" class="title-slide slide level1">
 <h1>Our Study</h1>
-<ul>
-  <li>Systematically investigates all usability problems and solutions for a set of popular interactive theorem provers.</li>
-  <li>Suggest further research paths for empirical studies</li>
-  <li>Have working software for everyone</li>
-</ul>
+<p>Systematic Analysis of Usability problems and solutions for ITPs</p>
+<p>SLR + Personal Investigation</p>
+<p>Working software for everyone😁</p>
 </section>
 <section id="references" class="title-slide slide level1">
 <h1>References</h1>
@@ -102,6 +109,7 @@
   <li>M. Hentschel,  R. H ̈ahnle,  and R. Bubel,  “An Empirical Evaluation of Two User Interfaces of an Interactive  Program  Verifier,”  in Proceedings of the 31st IEEE / ACM International Conference on Automated Software Engineering,  ser.  ASE  2016.New  York,  NY,  USA:Association for Computing Machinery, 2016, pp. 403–413, event-place:  Singapore, Singapore.</li>
   <li>J.  S.  Aitken,  P.  Gray,  T.  Melham,  and  M.  Thomas,  “Interactive  Theorem  Proving:   An Empirical  Study  of  User  Activity,”Journal of Symbolic Computation,  vol.  25,  no.  2,pp.  263–284,  1998</li>
   <li>S.  Grebing  and  M.  Ulbrich,  “Usability  Recommendations  for  User  Guidance  in  Deductive Program Verification,” in Deductive Software Verification: FuturePerspectives: Reflections on the Occasion of 20 Years of KeY,  W.  Ahrendt,  B.  Beckert,  R.  Bubel,  R.  H ̈ahnle,  and M.  Ulbrich,  Eds.    Cham:   Springer  International  Publishing,  2020,  pp.  261–284.</li>
+  <li>Runge T., Thüm T., Cleophas L., Schaefer I., Watson B.W. (2020) Comparing Correctness-by-Construction with Post-Hoc Verification—A Qualitative User Study. In: Sekerinski E. et al. (eds) Formal Methods. FM 2019 International Workshops. FM 2019. Lecture Notes in Computer Science, vol 12233. Springer, Cham. https://doi.org/10.1007/978-3-030-54997-8_25</li>
 </ol>
 </section>
     </div>
